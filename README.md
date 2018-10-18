@@ -1,2 +1,6 @@
-# react-native-start-project
-一个react native app初始项目，集成redux + redux-saga + react-native-storage等基本库
+# 安装
+
+```
+1.当前目录运行
+yarn install
+```
