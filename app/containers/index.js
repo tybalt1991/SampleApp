@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:31:54 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-25 15:21:00
+ * @Last Modified time: 2018-10-25 17:48:11
  */
 import React from 'react';
 import {Image, TouchableOpacity, View, Text,} from 'react-native';
@@ -11,6 +11,7 @@ import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 import LoginContainer from './LoginContainer';
 import Button from '../components/Button';
 import MyTitle from '../components/MyTitle';
+import SearchNav from '../components/SearchNav';
 //page
 import MainPage from '../pages/Main';
 import CategoryPage from '../pages/Category';
@@ -18,6 +19,8 @@ import SpacePage from '../pages/Space';
 import WholehousePage from '../pages/Wholehouse';
 import UserPage from '../pages/User';
 import CartPage from '../pages/Cart';
+import SearchPage from '../pages/Search';
+
 
 
 
@@ -89,9 +92,13 @@ TabContainer.navigationOptions = ({ navigation }) => {
     navigationOptions.headerTitle = (
       <MyTitle text='共享宝'/>
     );
-    navigationOptions.headerLeft = (<View/>);
+    navigationOptions.headerLeft = (
+      <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+        <SearchNav />
+      </TouchableOpacity>
+    );
     navigationOptions.headerRight = (
-      <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start',}}>
+      <View style={{flexDirection: 'row',}}>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Image
             style={{width:40,height:40,}}
@@ -140,6 +147,9 @@ const Container = createStackNavigator(
     },
     Cart: {
       screen: CartPage,
+    },
+    Search: {
+      screen: SearchPage,
     },
   },
   {
