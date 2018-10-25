@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-15 16:40:40 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-17 18:18:23
+ * @Last Modified time: 2018-10-23 18:19:27
  */
 
 import { put, take, call, fork } from 'redux-saga/effects';
@@ -24,9 +24,10 @@ export function* requestLoginByPSW(username, password) {
     );
     if (res.s == 1) {
       yield put(receiveLoginByPSW(res.d.seller, res.d.token));
-      storage.save({ key: 'userinfo', data: {user_info:res.d.seller}, expires:  30 * 86400 * 1000}); 
+      storage.save({ key: 'userinfo', data: {userinfo:res.d.seller}, expires:  30 * 86400 * 1000}); 
       storage.save({ key: 'token', data: {token:res.d.token}, expires:  30 * 86400 * 1000});
       ToastUtil.showShort('登录成功');
+      
     } else {
       yield put(receiveLoginByPSW({}, ''));
       ToastUtil.showShort(res.m);

@@ -1,8 +1,8 @@
 /*
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 13:59:20 
- * @Last Modified by:   tybalt.Huang 
- * @Last Modified time: 2018-10-16 13:59:20 
+ * @Last Modified by: tybalt.Huang
+ * @Last Modified time: 2018-10-24 17:12:05
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -39,6 +39,17 @@ Button.propTypes = propTypes;
 
 Button.defaultProps = {
   onPress() {},
+  containerStyle: {
+    height: 40,
+    width: 100,
+    borderRadius: 20,
+    backgroundColor: 'green',
+    justifyContent: 'center',
+  },
+  style:  {
+    textAlign: 'center',
+    color: 'white',
+  },
   disabled: false,
   activeOpacity: 0.8
 };

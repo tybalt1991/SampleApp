@@ -2,10 +2,12 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:38:57 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-16 09:56:56
+ * @Last Modified time: 2018-10-25 15:26:43
  */
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Button from '../../components/Button';
+import MyTitle from '../../components/MyTitle'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -15,6 +17,10 @@ const instructions = Platform.select({
 });
 
 class User extends React.Component {
+  static navigationOptions = {
+    headerTitle: (<MyTitle text='个人中心' />),
+    headerRight: <View/>
+  };
   constructor(props) {
     super(props);
     this.state = {

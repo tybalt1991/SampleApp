@@ -2,13 +2,15 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:38:57 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-17 18:31:43
+ * @Last Modified time: 2018-10-25 15:23:28
  */
 import React from 'react';
 import PropTypes from 'prop-types'
-import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
-import storage from '../../../utils/StorageUtil'
-
+import {StyleSheet, Text, View, TextInput,} from 'react-native';
+import storage from '../../../utils/StorageUtil';
+import { NavigationActions } from 'react-navigation';
+import Button from '../../../components/Button';
+import MyTitle from '../../../components/MyTitle';
 
 const propTypes = {
   authActions: PropTypes.object,
@@ -16,25 +18,27 @@ const propTypes = {
 };
 
 class Login extends React.Component {
+
   static navigationOptions = {
-    headerTitle: '登录',
+    headerTitle: (<MyTitle text='登录' />),
   };
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: '',
-      storageToken: ''
+      userinfo: {}
     };
   }
   //组件未加载
   componentWillMount() {
-    console.log('login-did-mount');
-    storage.load({ key: 'token'}).then(res => {
-      this.setState({storageToken: res.token});
+    storage.load({ key: 'userinfo'}).then(res => {
+      console.log(res);
+      if (res.userinfo) {
+        this.setState({userinfo: res.userinfo});
+      }
     }).catch(err => {
       console.log(err);
-      this.setState({storageToken: 'no storage'});
     });
   }
   //组件已加载
@@ -43,26 +47,31 @@ class Login extends React.Component {
   }
   //密码登录
   loginByPSW() {
-    const { authActions } = this.props;
+    const { authActions} = this.props;
     authActions.requestLoginByPSW(this.state.username, this.state.password);
+    NavigationActions.navigate('User');
   }
   render() {
+    const { auth } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Login Page!</Text>
         <TextInput
-          style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width: 200}}
           onChangeText={(username) => this.setState({username})}
           value={this.state.username} placeholder="请输入手机号" 
           maxLength={11}
         />
         <TextInput
-          style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width: 200}}
           onChangeText={(password) => this.setState({password})}
           value={this.state.password} placeholder="请输入密码" 
           secureTextEntry={true}
         />
-        <Button title="login" onPress={()=>this.loginByPSW()}></Button>
+        <Button
+          onPress={()=>this.loginByPSW()}
+          text="登录"
+        />
       </View>
     );
   }

@@ -2,11 +2,12 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:38:57 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-25 11:41:55
+ * @Last Modified time: 2018-10-25 15:25:33
  */
 import React from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
-import Button from '../../components/Button'
+import {Platform, StyleSheet, Text, View} from 'react-native';
+import Button from '../../components/Button';
+import MyTitle from '../../components/MyTitle';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -15,9 +16,16 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-class Main extends React.Component {
+class Cart extends React.Component {
+  static navigationOptions = {
+    headerTitle: (<MyTitle text='购物车' />),
+    headerRight: <View/>
+  };
   constructor(props) {
     super(props);
+    this.state = {
+      data: []
+    };
   }
   //组件未加载
   componentWillMount() {
@@ -28,21 +36,11 @@ class Main extends React.Component {
     
   }
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Main!</Text>
+        <Text style={styles.welcome}>Welcome to User!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <Button 
-          text="go to user" 
-          onPress={()=>navigate('User')}
-        />
-        <Text style={styles.instructions}>To login page</Text>
-        <Button 
-          text="login" 
-          onPress={()=>navigate('Login')}
-        />
       </View>
     );
   }
@@ -67,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Main;
+export default Cart;

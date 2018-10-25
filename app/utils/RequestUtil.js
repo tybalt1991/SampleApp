@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-15 15:33:36 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-17 17:34:25
+ * @Last Modified time: 2018-10-23 17:59:45
  */
 import querystring from 'querystring'
 const request = (url, method, data) => {
@@ -22,7 +22,6 @@ const request = (url, method, data) => {
       body: bodyData
     })
       .then((response) => {
-        console.log(response)
         if (response.ok) {
           isOk = true;
         } else {
