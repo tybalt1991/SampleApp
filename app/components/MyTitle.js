@@ -27,7 +27,7 @@ const propTypes = {
     style:  {
         flex: 1, 
         textAlign: 'center',  
-        fontSize: scaleSize(20), 
+        fontSize: 20, 
         color: 'black',
     },
   };

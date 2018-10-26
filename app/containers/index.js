@@ -25,7 +25,7 @@ import CartPage from '../pages/Cart';
 import SearchPage from '../pages/Search';
 
 //底部tab栏图片大小
-const tabBarImgStyle = {width: scaleSize(20), height: scaleSize(20)};
+const tabBarImgStyle = {width: 20, height: 20};
 
 const TabContainer = createBottomTabNavigator(
   {
@@ -104,13 +104,13 @@ TabContainer.navigationOptions = ({ navigation }) => {
       <View style={{flexDirection: 'row',}}>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Image
-            style={{width:scaleSize(20),height:scaleSize(20),}}
+            style={{width:20,height:20,}}
             source={require('../images/common/cart_icon.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('User')}>
           <Image
-            style={{width:scaleSize(20),height:scaleSize(20), marginRight: scaleSize(10), marginLeft: scaleSize(20)}}
+            style={{width:20,height:20, marginRight: scaleSize(10), marginLeft: scaleSize(20)}}
             source={require('../images/common/admin_icon.png')}
           />
         </TouchableOpacity>

@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { View, Image, Text, } from 'react-native';
-import {scaleSize, scaleHeight} from '../utils/AdapterUtil';
+import {scaleSize} from '../utils/AdapterUtil';
 
   
 const SearchNav = ({
@@ -24,10 +24,10 @@ const SearchNav = ({
   >
     <Image 
       source={require('../images/common/search_icon.png')} 
-      style={{ width: scaleSize(15), height: scaleSize(15) }}
+      style={{ width: 15, height: 15 }}
     >
     </Image>
-    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(150) }}>输入商品名称 编码
+    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: scaleSize(20)}}>输入商品名称 编码
     </Text>
   </View>
 </View>
