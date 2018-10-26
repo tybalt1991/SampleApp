@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-25 15:50:23 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-26 16:04:16
+ * @Last Modified time: 2018-10-26 16:41:02
  */
 import React from 'react';
 import { View, Image, Text, } from 'react-native';
@@ -27,7 +27,7 @@ const SearchNav = ({
       style={{ width: 15, height: 15 }}
     >
     </Image>
-    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: scaleSize(20)}}>输入商品名称 编码
+    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: 20}}>输入商品名称 编码
     </Text>
   </View>
 </View>

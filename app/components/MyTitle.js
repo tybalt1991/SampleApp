@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-25 14:43:35 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-26 15:52:45
+ * @Last Modified time: 2018-10-26 16:40:39
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +27,7 @@ const propTypes = {
     style:  {
         flex: 1, 
         textAlign: 'center',  
-        fontSize: 20, 
+        fontSize: 24, 
         color: 'black',
     },
   };

@@ -2,7 +2,7 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:31:54 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-26 15:51:30
+ * @Last Modified time: 2018-10-26 16:39:50
  */
 import React from 'react';
 import {Image, TouchableOpacity, View, Text,} from 'react-native';
@@ -25,7 +25,7 @@ import CartPage from '../pages/Cart';
 import SearchPage from '../pages/Search';
 
 //底部tab栏图片大小
-const tabBarImgStyle = {width: 20, height: 20};
+const tabBarImgStyle = {width: 25, height: 25};
 
 const TabContainer = createBottomTabNavigator(
   {
@@ -104,13 +104,13 @@ TabContainer.navigationOptions = ({ navigation }) => {
       <View style={{flexDirection: 'row',}}>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Image
-            style={{width:20,height:20,}}
+            style={{width:25,height:25,}}
             source={require('../images/common/cart_icon.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('User')}>
           <Image
-            style={{width:20,height:20, marginRight: scaleSize(10), marginLeft: scaleSize(20)}}
+            style={{width:25,height:25, marginRight: scaleSize(10), marginLeft: scaleSize(20)}}
             source={require('../images/common/admin_icon.png')}
           />
         </TouchableOpacity>
