@@ -27,7 +27,7 @@ const SearchNav = ({
       style={{ width: 15, height: 15 }}
     >
     </Image>
-    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: 20}}>输入商品名称 编码
+    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: scaleSize(20)}}>输入商品名称 编码
     </Text>
   </View>
 </View>
