@@ -2,16 +2,19 @@
  * @Author: tybalt.Huang 
  * @Date: 2018-10-16 09:31:54 
  * @Last Modified by: tybalt.Huang
- * @Last Modified time: 2018-10-25 17:48:11
+ * @Last Modified time: 2018-10-26 15:51:30
  */
 import React from 'react';
 import {Image, TouchableOpacity, View, Text,} from 'react-native';
 import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
-//component
+
+//container 涉及状态保存的页面
 import LoginContainer from './LoginContainer';
-import Button from '../components/Button';
+//component
 import MyTitle from '../components/MyTitle';
 import SearchNav from '../components/SearchNav';
+//util
+import {scaleSize} from '../utils/AdapterUtil'
 //page
 import MainPage from '../pages/Main';
 import CategoryPage from '../pages/Category';
@@ -21,8 +24,8 @@ import UserPage from '../pages/User';
 import CartPage from '../pages/Cart';
 import SearchPage from '../pages/Search';
 
-
-
+//底部tab栏图片大小
+const tabBarImgStyle = {width: scaleSize(20), height: scaleSize(20)};
 
 const TabContainer = createBottomTabNavigator(
   {
@@ -31,8 +34,8 @@ const TabContainer = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: '首页',
         tabBarIcon: ({focused}) => (
-            focused ? <Image source={require('../images/tab-icon/foot_01.png')} style={{ width: 25, height: 25 }} />
-            : <Image source={require('../images/tab-icon/foot_02.png')} style={{ width: 25, height: 25 }} />
+            focused ? <Image source={require('../images/tab-icon/foot_01.png')} style={tabBarImgStyle} />
+            : <Image source={require('../images/tab-icon/foot_02.png')} style={tabBarImgStyle} />
         ),
       }
     },
@@ -41,8 +44,8 @@ const TabContainer = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: '分类',
         tabBarIcon: ({focused}) => (
-            focused ? <Image source={require('../images/tab-icon/foot_04.png')} style={{ width: 25, height: 25 }} />
-            : <Image source={require('../images/tab-icon/foot_03.png')} style={{ width: 25, height: 25 }} />
+            focused ? <Image source={require('../images/tab-icon/foot_04.png')} style={tabBarImgStyle} />
+            : <Image source={require('../images/tab-icon/foot_03.png')} style={tabBarImgStyle} />
         )
       }
     },
@@ -51,8 +54,8 @@ const TabContainer = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: '空间方案',
         tabBarIcon: ({focused}) => (
-            focused ? <Image source={require('../images/tab-icon/foot_06.png')} style={{ width: 25, height: 25 }} />
-            : <Image source={require('../images/tab-icon/foot_05.png')} style={{ width: 25, height: 25 }} />
+            focused ? <Image source={require('../images/tab-icon/foot_06.png')} style={tabBarImgStyle} />
+            : <Image source={require('../images/tab-icon/foot_05.png')} style={tabBarImgStyle} />
         )
       }
     },
@@ -61,8 +64,8 @@ const TabContainer = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: '整装方案',
         tabBarIcon: ({focused}) => (
-            focused ? <Image source={require('../images/tab-icon/foot_08.png')} style={{ width: 25, height: 25 }} />
-            : <Image source={require('../images/tab-icon/foot_07.png')} style={{ width: 25, height: 25 }} />
+            focused ? <Image source={require('../images/tab-icon/foot_08.png')} style={tabBarImgStyle} />
+            : <Image source={require('../images/tab-icon/foot_07.png')} style={tabBarImgStyle} />
         )
       }
     },
@@ -101,15 +104,13 @@ TabContainer.navigationOptions = ({ navigation }) => {
       <View style={{flexDirection: 'row',}}>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <Image
-            style={{width:40,height:40,}}
+            style={{width:scaleSize(20),height:scaleSize(20),}}
             source={require('../images/common/cart_icon.png')}
           />
         </TouchableOpacity>
-        <Text style={{width:40,height:40,}}>
-        </Text>
         <TouchableOpacity onPress={() => navigation.navigate('User')}>
           <Image
-            style={{width:40,height:40, marginRight: 20,}}
+            style={{width:scaleSize(20),height:scaleSize(20), marginRight: scaleSize(10), marginLeft: scaleSize(20)}}
             source={require('../images/common/admin_icon.png')}
           />
         </TouchableOpacity>
@@ -120,15 +121,11 @@ TabContainer.navigationOptions = ({ navigation }) => {
     navigationOptions.headerTitle = (
       <MyTitle text='空间方案'/>
     );
-    navigationOptions.headerRight = (<View/>);
-    navigationOptions.headerLeft = (<View/>);
   }
   if (routes[index].routeName === 'Wholehouse') {
     navigationOptions.headerTitle = (
       <MyTitle text='整装方案'/>
     );
-    navigationOptions.headerRight = (<View/>);
-    navigationOptions.headerLeft = (<View/>);
   }
   
   return navigationOptions;
@@ -155,6 +152,13 @@ const Container = createStackNavigator(
   {
     mode: 'card',
     headerMode: 'screen',
+    headerLayoutPreset: "center",
+    navigationOptions: {
+      headerStyle: {
+        borderBottomWidth: 0,
+        elevation: 0,
+      },
+    },
   }
 );
 export default Container;
