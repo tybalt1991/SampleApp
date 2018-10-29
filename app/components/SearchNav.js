@@ -5,16 +5,20 @@
  * @Last Modified time: 2018-10-26 16:41:02
  */
 import React from 'react';
-import { View, Image, Text, } from 'react-native';
+import { View, Image, Text,Platform} from 'react-native';
 import {scaleSize} from '../utils/AdapterUtil';
 
+const navHeight = Platform.select({
+  ios: 30,
+  android: 40,
+});
   
 const SearchNav = ({
 }) => (
 <View style={{marginLeft: scaleSize(15),}}>
   <View 
     style={{ 
-        height: 40, 
+        height: navHeight, 
         backgroundColor: "#E6E6E6", 
         borderRadius: 5, 
         paddingLeft: scaleSize(5), 
@@ -27,7 +31,7 @@ const SearchNav = ({
       style={{ width: 15, height: 15 }}
     >
     </Image>
-    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: scaleSize(20)}}>输入商品名称 编码
+    <Text style={{ marginLeft: scaleSize(6), width: scaleSize(180),  fontSize: scaleSize(16)}}>输入商品名称 编码
     </Text>
   </View>
 </View>
